@@ -35,4 +35,11 @@ public class HerokuTest extends BaseTest {
         alertPage.openPage();
         alertPage.promptClick();
     }
+
+    @Test
+    public void dragAndDropTest(){
+        dragAndDropPage.openPage();
+//        dragAndDropPage.dragAndDrop();
+        dragAndDropPage.headerValidate("B");
+    }
 }
