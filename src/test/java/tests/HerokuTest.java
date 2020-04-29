@@ -11,6 +11,13 @@ public class HerokuTest extends BaseTest {
         fileUploaderPage.uploadValidate();
     }
 
+    @Test
+    public void contextMenuTest(){
+        contextMenuPage.openPage();
+        contextMenuPage.rightClick();
+        contextMenuPage.alertValidate();
+    }
+
 
 
 
