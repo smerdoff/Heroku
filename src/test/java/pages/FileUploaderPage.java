@@ -30,5 +30,4 @@ public class FileUploaderPage extends BasePage {
         String actualFilename = driver.findElement(By.id("uploaded-files")).getText();
         Assert.assertEquals(actualFilename, "txt.txt","Имена файлов не совпадают");
     }
-
 }

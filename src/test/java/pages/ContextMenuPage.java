@@ -26,10 +26,4 @@ public class ContextMenuPage extends BasePage {
         String alertText = driver.switchTo().alert().getText();
         Assert.assertEquals(alertText, expectedAlertText,"Текста алертов не совпадают");
     }
-
-
-
-
-
-
 }

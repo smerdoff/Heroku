@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.AlertPage;
 import pages.ContextMenuPage;
 import pages.FileUploaderPage;
 
@@ -13,6 +14,7 @@ public class BaseTest {
     private WebDriver driver;
     FileUploaderPage fileUploaderPage;
     ContextMenuPage contextMenuPage;
+    AlertPage alertPage;
     @BeforeMethod
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/java/resources/chromedriver.exe");
@@ -20,6 +22,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         fileUploaderPage = new FileUploaderPage(driver);
         contextMenuPage = new ContextMenuPage(driver);
+        alertPage = new AlertPage(driver);
     }
 
 

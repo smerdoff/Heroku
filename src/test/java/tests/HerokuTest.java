@@ -18,8 +18,21 @@ public class HerokuTest extends BaseTest {
         contextMenuPage.alertValidate();
     }
 
+    @Test
+    public void alertTest(){
+        alertPage.openPage();
+        alertPage.alertClick();
+    }
 
+    @Test
+    public void confirmTest(){
+        alertPage.openPage();
+        alertPage.confirmClick();
+    }
 
-
-
+    @Test
+    public void promptTest(){
+        alertPage.openPage();
+        alertPage.promptClick();
+    }
 }

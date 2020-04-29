@@ -13,6 +13,5 @@ public class BasePage {
         this.driver = driver;
         wait = new WebDriverWait(this.driver, 10);
         actions = new Actions(driver);
-        }
-
     }
+}
