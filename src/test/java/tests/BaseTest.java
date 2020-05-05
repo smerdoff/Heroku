@@ -19,7 +19,7 @@ public class BaseTest {
     DragAndDropPage dragAndDropPage;
     @BeforeMethod
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "src/test/java/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         fileUploaderPage = new FileUploaderPage(driver);
@@ -27,7 +27,6 @@ public class BaseTest {
         alertPage = new AlertPage(driver);
         dragAndDropPage = new DragAndDropPage(driver);
     }
-
 
     @AfterMethod(alwaysRun =true)
     public void closeBrowser() {

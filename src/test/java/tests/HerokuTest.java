@@ -3,12 +3,14 @@ package tests;
 import org.testng.annotations.Test;
 
 public class HerokuTest extends BaseTest {
+    String filePath = "src/test/resources/txt.txt";
+
     @Test
     public void fileUploadTest(){
         fileUploaderPage.openPage();
-        fileUploaderPage.uploadFile();
+        fileUploaderPage.uploadFile(filePath);
         fileUploaderPage.clickUpload();
-        fileUploaderPage.uploadValidate();
+        fileUploaderPage.uploadValidate("txt.txt");
     }
 
     @Test
@@ -22,18 +24,20 @@ public class HerokuTest extends BaseTest {
     public void alertTest(){
         alertPage.openPage();
         alertPage.alertClick();
+        alertPage.alertValidate("You successfuly clicked an alert");
     }
 
     @Test
     public void confirmTest(){
         alertPage.openPage();
-        alertPage.confirmClick();
+        alertPage.confirmValidate("You clicked: Ok", "You clicked: Cancel");
     }
 
     @Test
     public void promptTest(){
         alertPage.openPage();
         alertPage.promptClick();
+        alertPage.promptValidate("Test");
     }
 
     @Test

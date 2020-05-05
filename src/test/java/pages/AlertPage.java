@@ -20,29 +20,32 @@ public class AlertPage extends BasePage {
     public void alertClick(){
         driver.findElement(JS_ALERT).click();
         driver.switchTo().alert().accept();
+    }
+    public void alertValidate(String expectedMessage){
         String actualText = driver.findElement(RESULT).getText();
-        Assert.assertEquals(actualText, "You successfuly clicked an alert", "Текст результата не совпадает");
+        Assert.assertEquals(actualText, expectedMessage,"Текст алерта не совпадает");
     }
 
-    public void confirmClick(){
+    public void confirmValidate(String messageAfterConfirm, String messageAfterCancel){
         driver.findElement(JS_CONFIRM).click();
         driver.switchTo().alert().accept();
         String actualText = driver.findElement(RESULT).getText();
-        Assert.assertEquals(actualText, "You clicked: Ok" , "Текст результата не совпадает");
+        Assert.assertEquals(actualText, messageAfterConfirm , "Текст результата не совпадает");
         driver.findElement(JS_CONFIRM).click();
         driver.switchTo().alert().dismiss();
         actualText = driver.findElement(RESULT).getText();
-        Assert.assertEquals(actualText, "You clicked: Cancel", "Текст результата не совпадает");
+        Assert.assertEquals(actualText, messageAfterCancel, "Текст результата не совпадает");
     }
 
     public void promptClick(){
         driver.findElement(JS_PROMPT).click();
-        driver.switchTo().alert().sendKeys("Text");
-        driver.switchTo().alert().accept();
-        String actualText = driver.findElement(RESULT).getText();
-        Assert.assertEquals(actualText, "You entered: Text", "Текст результата не совпадает");
     }
 
-
+    public void promptValidate(String enteredText){
+        driver.switchTo().alert().sendKeys(enteredText);
+        driver.switchTo().alert().accept();
+        String actualText = driver.findElement(RESULT).getText();
+        Assert.assertEquals(actualText, "You entered: " + enteredText, "Текст результата не совпадает");
+    }
 }
 
